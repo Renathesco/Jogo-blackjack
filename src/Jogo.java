@@ -1,11 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-//import java.util.Random;
 import java.util.Scanner;
 
-//import java.util.Scanner;
-// listaCartas = new ArrayList<>();
 public class Jogo {
 	public static List<Jogador> jogadores;
 	int baralho;
@@ -13,11 +9,24 @@ public class Jogo {
 
 	public static void main(String[] args) {
 		List<Jogador> jogadores = new ArrayList<Jogador>();
+		Dealer dealer = createdealer();
 		jogadores = jogadoresParticipantes();
-		listaJogadores(jogadores);
+		listaJogadores(jogadores, dealer);
+		
 	}
 	
-	public static void listaJogadores(List<Jogador> jogadores) {
+	public static Dealer createdealer() {
+		Dealer dealer = new Dealer();
+		int carta1 = dealer.pegarCarta();
+		dealer.setCartaUm(carta1);
+		int carta2 = dealer.pegarCarta();
+		dealer.setCartaDois(carta2);
+		dealer.soma();
+		return dealer;
+	}
+	
+	public static void listaJogadores(List<Jogador> jogadores, Dealer dealer) {
+		System.out.println("Banca: " + "Carta 1: " + dealer.cartaUm);
 		for(int i = 0; i < jogadores.size(); i++) {
 			System.out.println("Nome: " + jogadores.get(i).nome + "\t" + " Carta 1: " + jogadores.get(i).cartaUm + " Carta 2: " + jogadores.get(i).cartaDois + " Soma: " + jogadores.get(i).soma + " Soma Ais:" + jogadores.get(i).somaAIs);
 		}
@@ -36,12 +45,8 @@ public class Jogo {
 	        jogador.setNome( sc.next());
 	        
 	        Baralho baralho = new Baralho();
-			Random gerador = new Random();
-			
-	        List<Carta> listaCartas = new ArrayList<Carta>();
-	        listaCartas =  baralho.pegarCarta();
-	        String cartaPuchada1 = listaCartas.get(gerador.nextInt(40)).valor;
-	        String cartaPuchada2 = listaCartas.get(gerador.nextInt(40)).valor;
+	        String cartaPuchada1 = baralho.pegarCarta(); // listaCartas.get(gerador.nextInt(51)).valor;
+	        String cartaPuchada2 = baralho.pegarCarta();
 	        
 	        if(cartaPuchada1 == "1" || cartaPuchada2 == "1") {
 	        	System.out.println("Caiu No Ais");

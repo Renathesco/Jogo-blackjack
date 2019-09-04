@@ -22,24 +22,18 @@ public class Baralho {
                 cartas.add(c);
             }
             
-
-//            c = new Carta();
-//            c.setValor("11");
-//            c.setNaipe(naipes[pos]);
-//            cartas.add(c);
-//            c = new Carta();
-//            c.setValor("12");
-//            c.setNaipe(naipes[pos]);
-//            cartas.add(c);
-//            c = new Carta();
-//            c.setValor("13");
-//            c.setNaipe(naipes[pos]);
-//            cartas.add(c);
-//            c = new Carta();
-//            c.setValor("Coringa");
-//            c.setNaipe("Coringa");
-//            cartas.add(c);
-
+            c = new Carta();
+            c.setValor("10");
+            c.setNaipe(naipes[pos]);
+            cartas.add(c);
+            c = new Carta();
+            c.setValor("10");
+            c.setNaipe(naipes[pos]);
+            cartas.add(c);
+            c = new Carta();
+            c.setValor("10");
+            c.setNaipe(naipes[pos]);
+            cartas.add(c);
             pos++;
         }
     }
@@ -49,8 +43,10 @@ public class Baralho {
 		return;
 	}
 	
-	public List<Carta> pegarCarta() {
-		return cartas;
+	public String pegarCarta() {
+		Random gerador = new Random();
+		String cartaPuchada = cartas.get(gerador.nextInt(51)).valor;
+		return  cartaPuchada;
 	}
 
 }
