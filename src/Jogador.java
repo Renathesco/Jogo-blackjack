@@ -52,6 +52,14 @@ public class Jogador {
 		this.parou = parou;
 	}
 	
+	public void incrementarSoma(int valor) {
+		this.soma += valor;
+	}
+	
+	public void incrementarAis(int valor) {
+		this.soma += valor;
+	}
+	
 	
 
 }
