@@ -1,31 +1,13 @@
 
 public class Jogador {
 	String nome;
-	int soma;
+	int soma = 0;
 	int somaAIs = 0;
-	int cartaUm;
-	int cartaDois;
 	boolean parou = false;
 	
 	
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-	
-	public void setCartaUm(int cartaUm) {
-		this.cartaUm = cartaUm;
-	}
-	
-	public int getCartaUm() {
-		return cartaUm;
-	}
-	
-	public void setCartaDois(int cartaDois) {
-		this.cartaDois = cartaDois;
-	}
-	
-	public int getCartaDois() {
-		return cartaDois;
 	}
 	
 	public int getSomaAIs() {

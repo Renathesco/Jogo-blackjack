@@ -1,10 +1,12 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
 public class Baralho {
 	
 	private final List<Carta> cartas;
+	public int disponiveis;
 	
 	public Baralho() {
 		cartas = new ArrayList<>();
@@ -23,30 +25,29 @@ public class Baralho {
             }
             
             c = new Carta();
-            c.setValor("10");
+            c.setValor("VALETE");
             c.setNaipe(naipes[pos]);
             cartas.add(c);
             c = new Carta();
-            c.setValor("10");
+            c.setValor("DAMA");
             c.setNaipe(naipes[pos]);
             cartas.add(c);
             c = new Carta();
-            c.setValor("10");
+            c.setValor("REI");
             c.setNaipe(naipes[pos]);
             cartas.add(c);
             pos++;
         }
+        disponiveis = cartas.size();
     }
 	
 	
 	public void embaralhar() {
-		return;
+		Collections.shuffle(cartas);
 	}
 	
-	public String pegarCarta() {
-		Random gerador = new Random();
-		String cartaPuchada = cartas.get(gerador.nextInt(51)).valor;
-		return  cartaPuchada;
+	public Carta pegarCarta() {
+		return cartas.get(--disponiveis);
 	}
 
 }
