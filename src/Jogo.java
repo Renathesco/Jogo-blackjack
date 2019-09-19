@@ -35,6 +35,7 @@ public class Jogo {
 		int pegarCarta = sc.nextInt();
 		while(pegarCarta == 1) {
 			Carta carta = baralho.pegarCarta();
+			System.out.println("\nCarta puchada Banca: " + carta.valor);
 			if (carta.valor == "1") {
 				jogadorDealer.incrementarSoma(1);
 				jogadorDealer.incrementarAis(11);
@@ -54,8 +55,8 @@ public class Jogo {
 		int indiceGanhador = 0;
 		double aux = 0;
 		for (int j = 0; j < jogadores.size(); j++) {
-			System.out.println("\n Nome: " + jogadores.get(j).nome + " Mão-> " + jogadores.get(j).soma + "/"
-					+ jogadores.get(j).somaAIs + " Total em dinheiro: " + jogadores.get(j).dinheiro);
+//			System.out.println("\n Nome: " + jogadores.get(j).nome + " Mão-> " + jogadores.get(j).soma + "/"
+//					+ jogadores.get(j).somaAIs + " Total em dinheiro: " + jogadores.get(j).dinheiro);
 
 			if (jogadores.get(j).getSoma() < 22 && aux < jogadores.get(j).getSoma()) {
 				aux = jogadores.get(j).getSoma();
@@ -116,10 +117,10 @@ public class Jogo {
 		for (int j = 0; j < jogadores.size(); j++) {
 			System.out.println("\n Nome: " + jogadores.get(j).nome + " Mão-> " + jogadores.get(j).soma + "/"
 					+ jogadores.get(j).somaAIs + " Total em dinheiro: " + jogadores.get(j).dinheiro);
-			if (jogadores.get(j).cartaUm == jogadores.get(j).cartaDois) {
-				System.out.println("\nDeseja separar seu baralho ? 1-Sim\n2-Não");
-
-			}
+//			if (jogadores.get(j).cartaUm == jogadores.get(j).cartaDois) {
+//				System.out.println("\nDeseja separar seu baralho ? 1-Sim\n2-Não");
+//
+//			}
 
 		}
 		System.out.println("\n Mão da Banca -> " + jogadorDealer.getSoma() + "/" + jogadorDealer.getSomaAIs());
