@@ -23,7 +23,6 @@ public class Jogo {
 	public static void finalizarPartida(List<Jogador> jogadores, Scanner sc, Baralho baralho) {
 		System.out.println("\n\nOs jogadores terminaram suas apostas, agora a banca vai puchar as cartas");
 		int cartaEscondidaDealer = jogadorDealer.getCartaEscondida();
-		System.out.println("CARTAESCONDIDABANCA" + cartaEscondidaDealer);
 		if(cartaEscondidaDealer == 1) {
 			jogadorDealer.incrementarSoma(1);
 			jogadorDealer.incrementarAis(11);
@@ -37,7 +36,6 @@ public class Jogo {
 		while(pegarCarta == 1) {
 			Carta carta = baralho.pegarCarta();
 			if (carta.valor == "1") {
-				System.out.println("CAIU NO 1 BANCA");
 				jogadorDealer.incrementarSoma(1);
 				jogadorDealer.incrementarAis(11);
 			} else if (carta.valor == "VALETE" || carta.valor == "DAMA" || carta.valor == "REI") {
@@ -127,35 +125,6 @@ public class Jogo {
 		System.out.println("\n Mão da Banca -> " + jogadorDealer.getSoma() + "/" + jogadorDealer.getSomaAIs());
 	}
 
-//	public static void listaJogadores(List<Jogador> jogadores, Dealer dealer, Scanner sc) {
-//		Baralho baralho = new Baralho();
-//		System.out.println("\nBanca: " + "Carta 1: " + dealer.cartaUm);
-//		for(int i = 0; i < jogadores.size(); i++) {
-//			System.out.println("\nNome: " + jogadores.get(i).nome + "\t" + " Carta 1: " + jogadores.get(i).cartaUm + " Carta 2: " + jogadores.get(i).cartaDois + " Soma: " + jogadores.get(i).soma + " Soma Ais:" + jogadores.get(i).somaAIs);
-//		}
-//		
-//		for(int i = 0; i < jogadores.size(); i++) {
-//			System.out.print("\nSelecione as opções desejadas 1-Sim/ 2-Não \n " + jogadores.get(i).nome + "\n" + "1 - Deseja pegar uma carta ?\n" + "2 - Deseja Continuar com sua mão" );
-//			int opcao = sc.nextInt();
-//			System.out.println("opcao:" + opcao);
-//			
-//			
-//			if (opcao == 1) {
-//				String carta = baralho.pegarCarta();
-//				System.out.println("\n A carta que você pegou é: " + jogadores.get(i));
-//				if (carta == "1") {
-//					jogadores.get(i).incrementarSoma(Integer.parseInt(carta));
-//					jogadores.get(i).incrementarAis(Integer.parseInt(carta));
-//					System.out.println(jogadores.get(i).nome + " Sua mao: " + jogadores.get(i).soma + "Soma Ais: " + jogadores.get(i).somaAIs);
-//				} else {
-//					jogadores.get(i).incrementarSoma(Integer.parseInt(carta));
-//					System.out.println(jogadores.get(i).nome + " Sua mao: " + jogadores.get(i).soma + "Soma Ais: " + jogadores.get(i).somaAIs);
-//				}
-//			}
-//		}
-//		sc.close();
-//	}
-
 	public static List<Jogador> comecarJogo(Scanner sc, Baralho baralho) {
 		jogadores = new ArrayList<>();
 		baralho.embaralhar();
@@ -167,8 +136,6 @@ public class Jogo {
 			for (int j = 0; j < qtdJogadores; j++) {
 				if (i == 1) {
 					Carta cartaPuchada2 = baralho.pegarCarta();
-					System.out.println("CARTAPUCHADA2: " + cartaPuchada2.valor);
-//		    		System.out.println("Carta 2: " + cartaPuchada2.valor);
 					if (cartaPuchada2.valor == "1") {
 						jogadores.get(j).incrementarSoma(1);
 						jogadores.get(j).incrementarAis(11);
@@ -190,8 +157,6 @@ public class Jogo {
 					jogador.setDinheiro(sc.nextDouble());
 
 					Carta cartaPuchada1 = baralho.pegarCarta();
-					System.out.println("CARTAPUCHADA1: " + cartaPuchada1.valor);
-//			        System.out.println("CARTA1: " + cartaPuchada1.valor);
 					if (cartaPuchada1.valor == "1") {
 						jogador.incrementarSoma(1);
 						jogador.incrementarAis(11);
@@ -215,8 +180,6 @@ public class Jogo {
 			for (int j = 0; j < 1; j++) {
 				if (i == 1) {
 					Carta cartaDealer2 = baralho.pegarCarta();
-					System.out.println("CARTAPUCHADA2Dealer: " + cartaDealer2.valor);
-//		    		System.out.println("Carta 2: " + cartaPuchada2.valor);
 					if (cartaDealer2.valor == "1") {
 						dealer.setCartaEscondida(1);
 					} else if (cartaDealer2.valor == "VALETE" || cartaDealer2.valor == "DAMA"
@@ -231,7 +194,6 @@ public class Jogo {
 				
 
 					Carta cartaDealer1 = baralho.pegarCarta();
-//			        System.out.println("CARTA1: " + cartaPuchada1.valor);
 					if (cartaDealer1.valor == "1") {
 						dealer.incrementarSoma(1);
 						dealer.incrementarAis(11);
@@ -247,10 +209,6 @@ public class Jogo {
 				}
 			}
 		}
-
-
-		
-//		System.out.println("DEALER SOMA E AIS: " + dealer.getSomaDealer()  + " " + dealer.getSomaAI());
 		
 
 		return jogadores;
