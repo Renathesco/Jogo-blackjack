@@ -1,6 +1,6 @@
 
 public class Dealer extends Jogador {
-	private int cartaEscondida;
+	public int cartaEscondida;
 	public Dealer() {
 		super();
 	}
@@ -12,6 +12,14 @@ public class Dealer extends Jogador {
 	public int getCartaEscondida() {
 		return cartaEscondida;
 	}
+	
+//	public int getSomaAI() {
+//		return this.somaAIs;
+//	}
+//	
+//	public int getSomaDealer() {
+//		return this.soma;
+//	}
 	
 }
 

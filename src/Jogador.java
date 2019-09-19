@@ -43,10 +43,6 @@ public class Jogador {
 		return somaAIs;
 	}
 	
-	public void setSomaAIs(int somaAIs) {
-		this.somaAIs = somaAIs;
-	}
-	
 	public String getNome() {
 		return nome;
 	}
@@ -65,7 +61,7 @@ public class Jogador {
 	}
 	
 	public void incrementarAis(int valor) {
-		this.soma += valor;
+		this.somaAIs += valor;
 	}
 	
 	public void verificarCartasIguais(Carta carta1, Carta carta2) {
